@@ -19,7 +19,7 @@ public class RoleService {
     }
 
     public List<Role> findAll() {
-        return repo.findAll();
+        return repo.findAllWithUsers();
     }
 
     public Role findById(UUID id) {

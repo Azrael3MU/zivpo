@@ -18,7 +18,7 @@ public class RoleController {
 
     @GetMapping
     public List<Role> all() {
-        return service.findAll();
+        return service.findAll(); // теперь с JOIN FETCH
     }
 
     @GetMapping("/{id}")

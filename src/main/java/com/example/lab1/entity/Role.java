@@ -1,5 +1,6 @@
 package com.example.lab1.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +19,9 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "role")
     @Builder.Default
+    @JsonManagedReference
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
+
 }
